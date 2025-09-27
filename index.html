@@ -76,14 +76,14 @@
         }
 
         iframe {
-            width: 100%;
-            max-width: 1200px;
-            height: 600px;
-            border-radius: 15px;
-            border: 2px solid #1e3d7b;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            display: none; /* hide initially */
-        }
+    width: 99vw;          /* full viewport width */
+    height: 100vh;         /* full viewport height */
+    border: none;          /* remove default border */
+    border-radius: 0;      /* remove border radius if full screen */
+    box-shadow: none;      /* remove shadow for full screen */
+    display: none;         /* hide initially, show with JS */
+}
+
 
         /* Button style for mobile fallback */
         .close-btn {
@@ -149,3 +149,4 @@
 
 </body>
 </html>
+
