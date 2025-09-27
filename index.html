@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Data Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+</head>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f0f4ff, #d9e4ff);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1e3d7b;
+            color: white;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .cards {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            color: #1e3d7b;
+        }
+
+        iframe {
+            width: 100%;
+            max-width: 1200px;
+            height: 600px;
+            border-radius: 15px;
+            border: 2px solid #1e3d7b;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            display: none; /* hide initially */
+        }
+
+        /* Button style for mobile fallback */
+        .close-btn {
+            background: #1e3d7b;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>India Data Dashboard</header>
+
+    <div class="container">
+        <div class="cards">
+            <div class="card" onclick="openPage('crime.html')">
+                <div style="font-size:48px; color:#ff4d4d; margin-bottom:1rem;">
+    👮
+</div>
+                <h3>India District Crime</h3>
+                <p>Explore crime data across districts of India.</p>
+            </div>
+            <div class="card" onclick="openPage('election.html')">
+                <div style="font-size:48px; color:#1e90ff; margin-bottom:1rem;">
+    🗳️
+</div>
+
+                <h3>Election Results 2024</h3>
+                <p>Check constituency-wise election results of 2024.</p>
+            </div>
+        </div>
+
+        <button class="close-btn" onclick="closePage()">Close</button>
+
+        <iframe id="contentFrame"></iframe>
+    </div>
+
+    <script>
+        const iframe = document.getElementById('contentFrame');
+        const closeBtn = document.querySelector('.close-btn');
+
+        function openPage(page) {
+            iframe.src = page;
+            iframe.style.display = 'block';
+            closeBtn.style.display = 'inline-block';
+            window.scrollTo({ top: iframe.offsetTop - 20, behavior: 'smooth' });
+        }
+
+        function closePage() {
+            iframe.src = '';
+            iframe.style.display = 'none';
+            closeBtn.style.display = 'none';
+        }
+
+        // Hide close button initially
+        closeBtn.style.display = 'none';
+    </script>
+
+</body>
+</html>
